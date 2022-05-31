@@ -1,4 +1,4 @@
-# frontend (Requires node 16)
+# Frontend
 
 ## Project setup
 ```
