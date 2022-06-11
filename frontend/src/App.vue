@@ -5,7 +5,6 @@
       color="primary"
       class="text-no-wrap text-center align-center"
       dark
-      flat
       >
         <v-app-bar-title class="title">Digital Bookshelf</v-app-bar-title>
 
@@ -32,14 +31,14 @@
       <v-row no-gutters>
         <v-col
          cols=12
-         md=2
+         ls="2"
+         md="3"
+         sm="6"
 
          v-for="book in books"
-         :key="books.id"
+         :key="book.id"
         >
-          <v-card>
-            {{book.title}}
-          </v-card>
+          <BookCard :currentBook="book" ></BookCard>
         </v-col>
       </v-row>
       
@@ -48,14 +47,16 @@
 </template>
 
 <script>
+import BookCard from "../components/bookCard.vue";
   export default {
     name: 'App',
 
-    components: {},
+    components: { BookCard },
 
     data: () => ({
       searchedBooks : [],
       books : [],
+      currentBook : null,
     }),
 
     methods: {
@@ -72,6 +73,7 @@
         }`;
         const graphqlResponse = await axios.post('http://localhost:4000/graphql', {query});
         this.books = graphqlResponse.data.data.books;
+        console.log(this.books);
       }
     },
 
@@ -93,4 +95,5 @@
     margin-bottom: 0;
     padding-bottom: 0;
   }
+
 </style>
