@@ -8,8 +8,23 @@
                 icon
                 v-bind="attrs"
                 v-on="on"
+                height="30px"
+                width="30px"
             >
-                <v-icon> {{ role === "edit" ? 'mdi-pencil' : 'mdi-delete' }} </v-icon>
+                <v-icon> {{ 
+                            (() => {
+                                if(role === 'read'){
+                                    return 'mdi-magnify';
+                                }
+                                else if( role === 'edit'){
+                                    return 'mdi-pencil';
+                                }
+                                else{
+                                    return 'mdi-delete';
+                                }
+                            })()
+                        }} 
+                </v-icon>
             </v-btn>
         </template>
 

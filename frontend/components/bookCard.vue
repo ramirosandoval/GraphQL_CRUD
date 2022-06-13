@@ -5,7 +5,7 @@
             <v-card-title class="">
             {{currentBook.title}}
             </v-card-title>
-
+            
             <v-card-subtitle class="subtitle">
                 {{currentBook.author}}
                 <br>
@@ -19,6 +19,7 @@
 
         <v-card-actions class="pl-0 ml-0 buttons">
             
+            <BookActions role="read"></BookActions>
             <BookActions role="edit"></BookActions>
             <BookActions role="erase"></BookActions>
 
@@ -40,6 +41,7 @@ import BookActions from './bookActions.vue';
     .subtitle{
         color: gray;
         line-height: 20px;
+        padding-top: 1vh;
     }
 
     .buttons{
